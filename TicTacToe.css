@@ -375,3 +375,9 @@ input[type=range]::-moz-range-thumb:active {
 #GameImage:active {
     opacity: 1;
 }
+#arrowD {
+    background: transparent;
+}
+#arrowD2 {
+    background: transparent;
+}

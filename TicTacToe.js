@@ -35,6 +35,9 @@ function check(a) {
     if(control == 0) {
         control++;
         START();
+        if(a==5){
+            KeyCheck = "05";
+        }
     }
     if(count%2 == 0){
         document.getElementById(ArrayFirst[a-1]).innerHTML = "X";
@@ -101,6 +104,7 @@ function WinCase(a) {
         Table2 = "2468";
         document.body.onkeydown = function() {NextEnter(event)};
     }else if(count == 9){
+        WinCount = 1;
         document.getElementById("Announcement").innerHTML = "It looks like draw <div id='Again' onclick='NextRound()'>Play Again</div>";
         DrawPoints++;
         document.getElementById("draws").innerHTML = DrawPoints;
@@ -112,7 +116,6 @@ function WinCase(a) {
         document.body.onkeydown = function() {NextEnter(event)};
         WinSound(0.2);
     }
-    console.log(KeyCheck);
 }
 function Win(a) {
     document.getElementById("Announcement").innerHTML = "Winner: "+ a + "<div id='Again' onclick='NextRound()'>Play Again</div>";
@@ -383,7 +386,7 @@ function Bot() {
     }
     KeyCheck += BotClick;
     Replace(BotClick);
-    setTimeout(check,200,BotClick);
+    setTimeout(check,150,BotClick);
 }
 function Replace(a){
     if(a%2!= 0 && a != 5) {
