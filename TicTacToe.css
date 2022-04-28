@@ -1,0 +1,354 @@
+:root {
+    --MainBg: rgb(0,0,0);
+    --MainFont: rgb(256,256,256);
+    --GameTrueBorder: rgb(40,40,40);
+    --GameTrueBgHover: rgb(5,5,5);
+    --GameTrueBorderHover: rgb(27,27,27);
+    --AgainBgBorder: rgb(30,30,30);
+    --SaveBg: rgb(40,40,40);
+    --SaveOpacity: 0.5;
+    --SaveAOpacity: 0.8;
+    --BoardOpacity: 0.3;
+    --FirstColor: 1deg;
+    --EndColor: 1deg;
+}
+* {
+    background-color: var(--MainBg);
+    color: var(--MainFont);
+    font-family: Arial, Helvetica, sans-serif;
+}
+table {
+    text-align: center;
+    height: 600px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+tr {
+    height: 100px;
+}
+th, td {
+    width: 200px;
+}
+th {
+    cursor: default;
+    border: solid var(--MainBg) 5px;
+    border-collapse: collapse;
+}
+td {
+    font-size: 700%;
+    font-weight: 500;
+}
+.GameTrue {
+    border: solid var(--GameTrueBorder) 5px;
+    border-collapse: collapse;
+    height: 200px;
+}
+.GameTrue:hover {
+    background-color: var(--GameTrueBgHover);
+    border: solid var(--GameTrueBorderHover) 5px;
+    cursor: pointer;
+}
+table, tr, td {
+    border: solid var(--GameTrueBorderHover) 5px;
+    border-collapse: collapse;
+}
+#head {
+    text-align: center;
+    height: 100px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid var(--MainBg) 5px;
+}
+#Announcement {
+    text-align: center;
+    margin-top: 5%;
+}
+#Again {
+    width:fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+#Again:hover {
+    border-radius: 20px;
+    background-color: var(--AgainBgBorder);
+    border: solid var(--AgainBgBorder) 3px;
+    cursor: pointer;
+}
+#ScoreBoard {
+    display: none;
+    position: absolute;
+    top: 5px;
+    left: 77%;
+    width: 150px;
+    height: 80px;
+    background: transparent;
+}
+#ScoreBoard table {
+    width: 150px;
+    height: 80px;
+}
+#ScoreBoard tr {
+    height: 40px;
+}
+#ScoreBoard td {
+    width: 10px;
+    font-size: 35px;
+}
+#ScoreBoard table, tr, td {
+    border: solid var(--GameTrueBorderHover) 0px;
+}
+#board {
+    cursor: default;
+    display: none;
+    opacity: var(--BoardOpacity);
+}
+#button {
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    left: 77%;
+    top: 5px;
+    cursor: pointer;
+    background-color: transparent;
+}
+#Save {
+    width: fit-content;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    opacity: var(--SaveOpacity);
+    border-radius: 10px;
+    background-color: var(--SaveBg);
+    padding-right: 10px;
+    padding-left: 10px ;
+    cursor: pointer;
+    visibility: hidden;
+}
+#Save:active {
+    opacity: var(--SaveAOpacity);
+}
+#LightControl {
+    display: none;
+    width: 50px;
+    height: 50px;
+    position:absolute;
+    top: 30px;
+    left: 30px;
+    background-color: transparent;
+    cursor: pointer;
+    opacity: 0.8;
+}
+#LightControl:active {
+    opacity: 1;
+}
+#LightControl img {
+    background-color: transparent;
+}
+#Switch {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top:20px;
+    left:17px;
+}
+#Sun {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+}
+#Moon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left:30px;
+}
+.rotate {
+    animation: rotation 0.5s linear;
+}
+.rotate2 {
+    animation: rotation2 0.5s linear;
+}
+@keyframes rotation {
+    from {
+      transform: rotate(-80deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+}
+@keyframes rotation2 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-80deg);
+    }
+}
+#ColorControl {
+    display: none;
+    background-color: transparent;
+    position: absolute;
+    top: 90px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    opacity: 0.7;
+    cursor: pointer;
+}
+#ColorControl:active {
+    opacity: 0.9;
+}
+#Color {
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+}
+.ColorRotate {
+    animation: ColorRotation 0.5s linear;
+}
+.Colored {
+    animation: ColoredRotation 0.5s linear;
+}
+@keyframes ColorRotation {
+    from {
+      transform: rotate(var(--FirstColor));
+    }
+    to {
+      transform: rotate(var(--EndColor));
+    }
+}
+@keyframes ColoredRotation {
+    from {
+      transform: rotate(var(--FirstColor));
+    }
+    to {
+      transform: rotate(var(--EndColor));
+    }
+}
+#button2 {
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    left: 35px;
+    top: 5px;
+    cursor: pointer;
+    background: transparent;
+}
+#button2 img {
+    background: transparent ;
+}
+#SoundControl {
+    display: none;
+    background-color: transparent;
+    position: absolute;
+    top: 150px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    opacity: 0.7;
+    cursor: pointer;
+}
+#Sound:active {
+    opacity: 0.9;
+}
+#Sound {
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+}
+#MusicControl {
+    display: none;
+    background-color: transparent;
+    position: absolute;
+    top: 200px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    opacity: 0.7;
+    cursor: pointer;
+}
+#Music:active {
+    opacity: 0.9;
+}
+#Music {
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+}
+.range {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: absolute;
+  top: 15px;
+  left: 120px;
+  width: 200px;
+  margin-top: 10px;
+  transform: translate(-50%, -50%);
+}
+input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  background-color: whitesmoke;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1 );
+  height: 2px;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 2px solid;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  max-width: 80px;
+  position: relative;
+  bottom: 11px;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  cursor: -webkit-grab;
+
+  -webkit-transition: border 1000ms ease;
+  transition: border 1000ms ease;
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+  cursor: -webkit-grabbing;
+}
+
+input[type=range]::-moz-range-thumb:active {
+  cursor: -moz-grabbing;
+}
+#inputed {
+    opacity: 0.5;
+    background-color: gray;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 15px;
+    width: 240px;
+    height: 50px;
+    top:140px;
+    left:0px;
+    transform: rotate(-90deg);
+    position: absolute;
+    display: none;
+}
+#Settings {
+    width: 0px;
+    height: 0px;
+    top:0px;
+    left: 0px;
+    position: absolute;
+    background: transparent;
+}
+#AudioCount {
+    position: absolute;
+    left: 250px;
+    top: 15px;
+    transform: rotate(90deg);
+    width: fit-content;
+    height: fit-content;
+}

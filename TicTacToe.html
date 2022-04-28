@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Tic-Tac-Toe
+        </title>
+        <meta charset="utf-8"/>
+        <link href="TicTacToe.css" rel="stylesheet"/>
+        <link id="favicon" rel="icon" type="image" href="loading.png"/>
+    </head>
+    <body onkeydown="KeyPressed(event)">
+        <table id="head">
+            <tr>
+                <th>
+                    <h1 onclick="TIC()">
+                        Tic
+                    </h1>
+                </th>
+                <th>
+                    <h1 onclick="TAC()">
+                        Tac
+                    </h1>
+                </th>
+                <th>
+                    <h1>
+                        Toe
+                    </h1>
+                </th>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td class="GameTrue" id="tl" onclick="Click(7)">
+                    
+                </td>
+                <td class="GameTrue" id="tc" onclick="Click(8)">
+                    
+                </td>
+                <td class="GameTrue" id="tr" onclick="Click(9)">
+                    
+                </td>
+            </tr>
+            <tr>
+                <td class="GameTrue" id="ml" onclick="Click(4)">
+                    
+                </td>
+                <td class="GameTrue" id="mc" onclick="Click(5)">
+                    
+                </td>
+                <td class="GameTrue" id="mr" onclick="Click(6)">
+                    
+                </td>
+            </tr>
+            <tr>
+                <td class="GameTrue" id="bl" onclick="Click(1)">
+                    
+                </td>
+                <td class="GameTrue" id="bc" onclick="Click(2)">
+                    
+                </td>
+                <td class="GameTrue" id="br" onclick="Click(3)">
+                    
+                </td>
+            </tr>
+        </table>
+        <h1 id="Announcement">
+
+        </h1>
+        <div id="ScoreBoard">
+            <div id="board">
+                <table>
+                    <tr>
+                        <td>
+                            X:
+                        </td>
+                        <td>
+                            O:
+                        </td>
+                        <td>
+                            Draws:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="xys">
+                            0
+                        </td>
+                        <td id="oys">
+                            0
+                        </td>
+                        <td id="draws">
+                            0
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="button" onclick="Score()">
+                <img id="arrowD" src="arrow.png" width="40px" height="20px" />
+            </div>
+        </div>
+        <div id="Save" onclick="Save()">
+            Save
+        </div>
+        <div id="Settings" onmouseleave="Hide()">
+            <div id="LightControl" onclick="LightMode()">
+                <img id="Switch" src="Switch.png" alt="Switch"/>
+                <img id="Moon" src="moon.png" alt="Dark"/>
+                <img id="Sun" src="sun.png" alt="Light"/>
+            </div>
+            <div id="ColorControl" onclick="Color()">
+                <img id="Color" src="color.png" alt="ColorChoose"/>
+            </div>
+            <div id="SoundControl" onclick="Sound()">
+                <img id="Sound" src="Sound.png" alt="Sound"/>
+            </div>
+            <div id="MusicControl" onclick="Music()">
+                <img id="Music" src="MusicOff.png" alt="Sound"/>
+            </div>
+            <div id="button2" onclick="Settings()">
+                <img id="arrowD2" src="arrow.png" width="40px" height="20px" />
+            </div>
+            <div id="inputed">
+                <input oninput="Change()" onmouseup="SliderDark()" onmousedown="SliderLight()" class="range blue" type="range" id="vol" min="0" max="1" value="0.5" step="0.01">
+                <div id="AudioCount">
+                    50
+                </div>
+            </div>
+        </div>
+        <audio loop id="BackgroundMusic">
+            <source src="BackgroundMusic.mp3" type="audio/mpeg"/>
+        </audio>
+        <audio id="DropDown">
+            <source src="DropDown.wav" type="audio/wav"/>
+        </audio>
+        <audio id="Hover">
+            <source src="HoverX.wav" type="audio/wav"/>
+        </audio>
+        <audio id="Win">
+            <source src="Win.wav" type="audio/wav"/>
+        </audio>
+        <script src="TicTacToe.js"></script>
+    </body>
+</html>
