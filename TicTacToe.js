@@ -15,10 +15,12 @@ MusicValue = 50;
 WinCount = 0;
 Table = "1379";
 Table2 = "2468";
+ModeControl = 0;
 function START() {
     WinCount = 0;
     count = 0;
     CheckArray = [0,1,2,3,4,5,6,7,8];
+    KeyCheck = "0";
     for(s in ArrayFirst) {
         document.getElementById(ArrayFirst[s]).style.pointerEvents = "auto";
     }
@@ -95,7 +97,6 @@ function WinCase(a) {
         WinSound(0.2);
         document.getElementById("favicon").href="loading.png";
         document.body.onkeydown = "";
-        KeyCheck = "0";
         Table = "1379";
         Table2 = "2468";
         document.body.onkeydown = function() {NextEnter(event)};
@@ -106,12 +107,12 @@ function WinCase(a) {
         document.getElementById("Save").style.visibility = "visible";
         document.getElementById("favicon").href="loading.png";
         document.body.onkeydown = "";
-        KeyCheck = "0";
         Table = "1379";
         Table2 = "2468";
         document.body.onkeydown = function() {NextEnter(event)};
         WinSound(0.2);
     }
+    console.log(KeyCheck);
 }
 function Win(a) {
     document.getElementById("Announcement").innerHTML = "Winner: "+ a + "<div id='Again' onclick='NextRound()'>Play Again</div>";
@@ -281,7 +282,7 @@ function KeyPressed(key) {
             KeyCheck+= x.substring(6,7);
             Replace(x.substring(6,7));
             check(x.substring(6,7));
-            if(WinCount == 0) Bot();
+            if(WinCount == 0 && ModeControl == 0) Bot();
         }
     }
 }
@@ -311,16 +312,18 @@ function Settings() {
         document.getElementById("ColorControl").style.display = "flex";
         document.getElementById("MusicControl").style.display = "flex";
         document.getElementById("SoundControl").style.display = "flex";
+        document.getElementById("GameMode").style.display = "flex";
         document.getElementById("Settings").style.width = "140px";
         document.getElementById("Settings").style.height = "270px";
         SettingsCount++;
         document.getElementById("arrowD2").style.transform = "scaleY(-1)";
-        document.getElementById("button2").style.top = "260px";
+        document.getElementById("button2").style.top = "305px";
     }else {
         document.getElementById("LightControl").style.display = "none";
         document.getElementById("ColorControl").style.display = "none";
         document.getElementById("MusicControl").style.display = "none";
         document.getElementById("SoundControl").style.display = "none";
+        document.getElementById("GameMode").style.display = "none";
         document.getElementById("Settings").style.width = "0px";
         document.getElementById("Settings").style.height = "0px";
         SettingsCount = 0;
@@ -358,7 +361,7 @@ function Click(klik) {
     KeyCheck+=klik;
     check(klik);
     Replace(klik);
-    if(WinCount == 0) Bot();
+    if(WinCount == 0 && ModeControl == 0) Bot();
 }
 function Change() {
     MusicValue = document.getElementById("vol").value*100;
@@ -388,6 +391,21 @@ function Replace(a){
     }else {
         Table2 = Table2.replace(a,"");
     }
+}
+function ModeChange() {
+    if(ModeControl==0) {
+        document.getElementById("GameImage").src = "TwoPlayers.png";
+        ModeControl++;
+    }else {
+        document.getElementById("GameImage").src = "Computer.png";
+        ModeControl = 0;
+    }
+    xPoints = 0;
+    oPoints = 0;
+    DrawPoints = 0;
+    document.getElementById("xys").innerHTML = xPoints;
+    document.getElementById("oys").innerHTML = oPoints;
+    document.getElementById("draws").innerHTML = DrawPoints;
 }
 //Sztuczna inteligencja
 //Dodatki (blossom tree)
