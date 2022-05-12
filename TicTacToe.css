@@ -381,3 +381,6 @@ input[type=range]::-moz-range-thumb:active {
 #arrowD2 {
     background: transparent;
 }
+a {
+    text-decoration: none;   
+}
